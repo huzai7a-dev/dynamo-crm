@@ -1,8 +1,8 @@
-import https from "https";
+import http from "http";
 import app from "./app";
 import { connectToDb } from "./utils/db";
 
-const server = https.createServer(app);
+const server = http.createServer(app);
 const PORT = process.env.PORT || 4000;
 const startApp = async () => {
   await connectToDb();
