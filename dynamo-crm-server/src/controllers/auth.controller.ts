@@ -2,13 +2,12 @@ import { z } from "zod";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 
-import { signUpSchema } from "../models/User/user.validation";
+import { signUpValidationSchema } from "../models/user/user.validation";
 import { comparePassword, hashPassword } from "../utils/auth";
-import { createNewUser, findUser } from "../models/User/user.mongoose";
-import User from "../models/User/user.schema";
+import { createNewUser, findUser } from "../models/user/user.mongoose";
 
 const httpSignUpUser = async (req: Request, res: Response) => {
-  const payload = req.body as z.infer<typeof signUpSchema>;
+  const payload = req.body as z.infer<typeof signUpValidationSchema>;
   const user = await findUser({ user_name: payload.user_name });
 
   if (user)

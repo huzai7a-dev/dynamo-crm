@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const signUpSchema = z.object({
+const signUpValidationSchema = z.object({
   user_name: z.string().min(6, "User name is required"),
   password: z.string().min(6, "Password must be at least 6 characters long"),
   primary_email: z.string().email("Invalid email address"),
@@ -20,9 +20,9 @@ const signUpSchema = z.object({
   state: z.string().optional(),
 });
 
-const loginSchema = z.object({
+const loginValidationSchema = z.object({
   user_name: z.string().min(6, "User name is required"),
   password: z.string().min(6, "Password must be at least 6 characters long"),
 });
 
-export { signUpSchema, loginSchema };
+export { signUpValidationSchema, loginValidationSchema };

@@ -3,7 +3,9 @@ import { z, ZodError } from "zod";
 
 import { StatusCodes } from "http-status-codes";
 
-export function validatePayload(schema: z.ZodObject<any, any>) {
+export function validatePayload(
+  schema: z.ZodEffects<z.ZodObject<any, any>> | z.ZodObject<any, any>
+) {
   return (req: Request, res: Response, next: NextFunction) => {
     try {
       schema.parse(req.body);

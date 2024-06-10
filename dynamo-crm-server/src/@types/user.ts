@@ -29,7 +29,11 @@ interface IUserMethods {
   signJwt(): string;
 }
 
-// Create a new Model type that knows about IUserMethods...
 type IUserModel = Model<IUser, {}, IUserMethods>;
 
-export type { IUser, IUserModel, IUserMethods };
+interface AuthUserReq {
+  _id: string;
+  token: string;
+}
+
+export type { IUser, IUserModel, IUserMethods, AuthUserReq };

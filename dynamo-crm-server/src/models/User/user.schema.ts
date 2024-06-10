@@ -67,6 +67,6 @@ userSchema.method("signJwt", function signJwt() {
   );
 });
 
-const User = mongoose.model<IUser, IUserModel>("user", userSchema);
+const User = mongoose.model<IUser, IUserModel>("User", userSchema);
 
 export default User;
