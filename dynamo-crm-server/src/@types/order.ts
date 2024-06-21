@@ -19,6 +19,10 @@ interface IOrder extends Document {
   rush?: Boolean;
   attachments: [string];
   digitize_properties?: IDigitizeProperties;
+  status: "pending" | "processing" | "delivered";
+  bill_paid: Boolean;
+  created_at: Date;
+  updated_at: Date;
 }
 
 type IOrderModel = Model<IOrder>;

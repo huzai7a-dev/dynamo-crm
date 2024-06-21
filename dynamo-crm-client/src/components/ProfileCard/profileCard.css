@@ -1,0 +1,11 @@
+.profile_card {
+  padding: 0 !important;
+  position: absolute;
+  right: 1rem;
+  width: 200px;
+  transition: all .5s;
+}
+
+.profile_card .ant-card-body {
+    padding: 8px 16px;
+}

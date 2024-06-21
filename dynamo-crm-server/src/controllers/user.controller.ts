@@ -6,7 +6,7 @@ import { findUser } from "../models/user/user.mongoose";
 
 const httpGetMyProfile = async (req: Request, res: Response) => {
   const { _id } = req.user as AuthUserReq;
-  const user = await findUser({ _id });
+  const user = await findUser({ _id }, { password: 0 });
   return res.status(StatusCodes.OK).json(user);
 };
 

@@ -1,9 +1,14 @@
 import morgan from "morgan";
 import express from "express";
+import cors from "cors";
 import apiRoutes from "./routes/api";
 const app = express();
 
-//built in middleware
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
 app.use(express.json());
 app.use(morgan("dev"));
 

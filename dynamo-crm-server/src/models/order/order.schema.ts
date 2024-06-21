@@ -59,17 +59,26 @@ const orderSchema = new mongoose.Schema<IOrder, IOrderModel>({
         required: true,
       },
     },
-    created_at: {
-      type: Date,
-      default: Date.now,
-    },
-    updated_at: {
-      type: Date,
-      default: Date.now,
-    },
     required: function () {
       return this.order_type === "digitizing";
     },
+  },
+  status: {
+    type: String,
+    enum: ["pending", "processing", "delivered"],
+    default: "pending",
+  },
+  bill_paid: {
+    type: Boolean,
+    default: false,
+  },
+  created_at: {
+    type: Date,
+    default: Date.now,
+  },
+  updated_at: {
+    type: Date,
+    default: Date.now,
   },
 });
 

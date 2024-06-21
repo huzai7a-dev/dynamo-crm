@@ -1,26 +1,9 @@
-import { MenuProps } from "antd";
+const APP_ROUTES = {
+  dashboard: "/",
+  login: "/login",
+  signup: "/signup",
+  orders: "/orders",
+  ordersView: "/orders/:id",
+};
 
-type MenuItem = Required<MenuProps>["items"][number];
-
-const routesList: MenuItem[] = [
-  {
-    key: "/",
-    label: "Dashboard",
-  },
-  {
-    key: "orders",
-    label: "Orders",
-    children: [
-      {
-        key: "/vector",
-        label: "Vector",
-      },
-      {
-        key: "/digitize",
-        label: "Digitize",
-      },
-    ],
-  },
-];
-
-export default routesList;
+export { APP_ROUTES };

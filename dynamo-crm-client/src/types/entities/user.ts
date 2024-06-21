@@ -1,8 +1,5 @@
-import { Document, Model } from "mongoose";
-
-interface IUser extends Document {
+interface IUser {
   user_name: string;
-  password: string;
   isAdmin: boolean;
   primary_email: string;
   secondary_email: string;
@@ -25,15 +22,4 @@ interface IUser extends Document {
   updated_at?: Date;
 }
 
-interface IUserMethods {
-  signJwt(): string;
-}
-
-type IUserModel = Model<IUser, {}, IUserMethods>;
-
-interface AuthUserReq {
-  _id: string;
-  token: string;
-}
-
-export type { IUser, IUserModel, IUserMethods, AuthUserReq };
+export type { IUser };

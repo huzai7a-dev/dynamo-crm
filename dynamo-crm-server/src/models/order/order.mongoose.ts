@@ -6,8 +6,16 @@ const createOrder = async (order: IOrder) => {
   return await newOrder.save();
 };
 
-const getAllOrders = async () => {
-  return await Order.find({}).populate("owner");
+const getAllOrders = async (skip: number, limit: number) => {
+  return await Order.find({})
+    .populate("owner", { password: 0 })
+    .skip(skip)
+    .limit(limit);
 };
 
-export { createOrder, getAllOrders };
+const getOrdersCount = async () => {
+  const count = await Order.estimatedDocumentCount();
+  return count;
+};
+
+export { createOrder, getAllOrders, getOrdersCount };

@@ -44,8 +44,13 @@ const httpSignInUser = async (req: Request, res: Response) => {
     message: "Login successfully",
     data: {
       token,
-      _id: user._id,
-      isAdmin: user.isAdmin,
+      profile: {
+        _id: user._id,
+        isAdmin: user.isAdmin,
+        user_name: user.user_name,
+        contact_name: user.contact_name,
+        primary_email: user.primary_email,
+      },
     },
   });
 };

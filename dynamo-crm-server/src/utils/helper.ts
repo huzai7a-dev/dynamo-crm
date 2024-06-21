@@ -12,4 +12,21 @@ const uploadFiles = async (files: Express.Multer.File[]): Promise<string[]> => {
   return attachments;
 };
 
-export { uploadFiles };
+const getPagination = (query: any, count: number) => {
+  const DEFAULT_PAGE_LIMIT = 10;
+  const DEFAULT_PAGE_NUMBER = 1;
+  const page = Math.abs(Number(query.page)) || DEFAULT_PAGE_NUMBER;
+  const limit = Math.abs(Number(query.limit)) || DEFAULT_PAGE_LIMIT;
+  const skip = (page - 1) * limit;
+  const paginationData = {
+    totalPages: Math.ceil(count / limit),
+    currentPage: page,
+  };
+  return {
+    skip,
+    limit,
+    paginationData,
+  };
+};
+
+export { uploadFiles, getPagination };
