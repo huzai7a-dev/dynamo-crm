@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 
 import { signUpValidationSchema } from "../models/user/user.validation";
-import { comparePassword, hashPassword } from "../utils/auth";
+import { comparePassword, hashPassword } from "../utils/helper";
 import { createNewUser, findUser } from "../models/user/user.mongoose";
 
 const httpSignUpUser = async (req: Request, res: Response) => {

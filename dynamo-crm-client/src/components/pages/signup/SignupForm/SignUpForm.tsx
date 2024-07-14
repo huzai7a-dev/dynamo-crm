@@ -13,7 +13,7 @@ import { Controller } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 import useSignUpForm from "./useSignUpForm";
-import { APP_ROUTES } from "../../../constants";
+import { APP_ROUTES } from "src/constants";
 
 const { Option } = Select;
 

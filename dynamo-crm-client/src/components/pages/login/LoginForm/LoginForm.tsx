@@ -3,7 +3,7 @@ import { Controller } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 import useLoginForm from "./useLoginForm";
-import { APP_ROUTES } from "../../../constants";
+import { APP_ROUTES } from "src/constants";
 
 const LoginForm = () => {
   const { control, errors, handleSubmit, onSubmit } = useLoginForm();

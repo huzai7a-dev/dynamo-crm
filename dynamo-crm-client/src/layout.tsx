@@ -6,8 +6,9 @@ import {
 } from "@ant-design/icons";
 import { Button, Flex, Layout, Menu, MenuProps } from "antd";
 import { Outlet } from "react-router-dom";
+
 import useLayout from "./hooks/useLayout";
-import ProfileCard from "./components/ProfileCard";
+import ProfileCard from "./components/common/ProfileCard";
 
 const { Header, Sider, Content } = Layout;
 
@@ -35,7 +36,6 @@ const AppLayout = () => {
     handleMenuClick,
     setCollapsed,
   } = useLayout();
-  console.log(profile);
   return (
     <Layout style={{ height: "100vh" }}>
       <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -73,8 +73,10 @@ const AppLayout = () => {
             margin: "16px 8px",
             padding: 8,
             minHeight: 280,
+            height: "calc(100vh - 64px)",
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
+            // overflowY: "auto",
           }}
         >
           <Outlet />

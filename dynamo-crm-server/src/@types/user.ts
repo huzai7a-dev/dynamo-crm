@@ -34,6 +34,7 @@ type IUserModel = Model<IUser, {}, IUserMethods>;
 interface AuthUserReq {
   _id: string;
   token: string;
+  isAdmin: boolean;
 }
 
 export type { IUser, IUserModel, IUserMethods, AuthUserReq };

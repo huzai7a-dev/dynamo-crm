@@ -1,5 +1,6 @@
+import CreateOrder from "./pages/Order/CreateOrder";
 import Dashboard from "./pages/Dashboard";
-import Orders from "./pages/Orders";
+import Orders from "./pages/Order/Orders";
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/Signup";
 
@@ -11,6 +12,10 @@ const routes = [
   {
     path: "/orders",
     element: <Orders />,
+  },
+  {
+    path: "/create-order",
+    element: <CreateOrder />,
   },
 ];
 

@@ -12,3 +12,9 @@ body {
   height: 100dvh;
   background-color: #fafafa;
 }
+
+.table_container {
+  height: 100%;
+  overflow: auto;
+  padding: "10px 0px";
+}

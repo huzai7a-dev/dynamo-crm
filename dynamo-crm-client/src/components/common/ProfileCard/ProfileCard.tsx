@@ -1,6 +1,6 @@
 import { Avatar, Button, Card, Flex, Typography } from "antd";
-import { IUser } from "../../types/entities/user";
-import { getNameLetters } from "../../utils/heplers";
+import { IUser } from "../../../types/entities/user";
+import { getNameLetters } from "../../../utils/heplers";
 import "./profileCard.css";
 import { useState } from "react";
 

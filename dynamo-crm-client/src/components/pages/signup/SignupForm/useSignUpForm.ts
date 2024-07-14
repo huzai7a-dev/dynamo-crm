@@ -5,10 +5,10 @@ import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { useNavigate } from "react-router-dom";
 
-import { httpSignup } from "../../../services/auth.service";
-import { showNotification } from "../../../utils/heplers";
-import { APP_ROUTES } from "../../../constants";
-import { SignUpResponse } from "../../../types/httpResponse/auth";
+import { httpSignup } from "../../../../services/auth.service";
+import { showNotification } from "../../../../utils/heplers";
+import { APP_ROUTES } from "../../../../constants";
+import { SignUpResponse } from "../../../../types/httpResponse/auth";
 
 type SignUpFormData = z.infer<typeof signUpValidationSchema>;
 const signUpValidationSchema = z.object({

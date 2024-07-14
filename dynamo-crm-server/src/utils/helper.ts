@@ -1,3 +1,4 @@
+import bcrypt from "bcrypt";
 import uploadToCloud from "../config/cloudinary";
 
 const uploadFiles = async (files: Express.Multer.File[]): Promise<string[]> => {
@@ -12,6 +13,17 @@ const uploadFiles = async (files: Express.Multer.File[]): Promise<string[]> => {
   return attachments;
 };
 
+const hashPassword = async (password: string) => {
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(password, salt);
+  return hashedPassword;
+};
+
+const comparePassword = async (password: string, hashedPassword: string) => {
+  const isMatch = await bcrypt.compare(password, hashedPassword);
+  return isMatch;
+};
+
 const getPagination = (query: any, count: number) => {
   const DEFAULT_PAGE_LIMIT = 10;
   const DEFAULT_PAGE_NUMBER = 1;
@@ -21,6 +33,7 @@ const getPagination = (query: any, count: number) => {
   const paginationData = {
     totalPages: Math.ceil(count / limit),
     currentPage: page,
+    totalCount: count,
   };
   return {
     skip,
@@ -29,4 +42,4 @@ const getPagination = (query: any, count: number) => {
   };
 };
 
-export { uploadFiles, getPagination };
+export { uploadFiles, getPagination, comparePassword, hashPassword };

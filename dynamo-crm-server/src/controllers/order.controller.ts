@@ -6,6 +6,7 @@ import { getPagination, uploadFiles } from "../utils/helper";
 import {
   createOrder,
   getAllOrders,
+  getClientOrders,
   getOrdersCount,
 } from "../models/order/order.mongoose";
 import { AuthUserReq } from "../@types/user";
@@ -33,9 +34,15 @@ const httpCreateOrder = async (req: Request, res: Response) => {
 };
 
 const httpGetOrders = async (req: Request, res: Response) => {
+  const user = req.user as AuthUserReq;
   const count = await getOrdersCount();
   const { limit, skip, paginationData } = getPagination(req.query, count);
-  const orders = await getAllOrders(skip, limit);
+  let orders = [];
+  if (user.isAdmin) {
+    orders = await getAllOrders(skip, limit);
+  } else {
+    orders = await getClientOrders(user._id, skip, limit);
+  }
   return res.status(StatusCodes.OK).send({ data: orders, ...paginationData });
 };
 

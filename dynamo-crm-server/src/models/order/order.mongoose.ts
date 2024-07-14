@@ -12,10 +12,13 @@ const getAllOrders = async (skip: number, limit: number) => {
     .skip(skip)
     .limit(limit);
 };
+const getClientOrders = async (owner: string, skip: number, limit: number) => {
+  return await Order.find({ owner }).skip(skip).limit(limit);
+};
 
 const getOrdersCount = async () => {
   const count = await Order.estimatedDocumentCount();
   return count;
 };
 
-export { createOrder, getAllOrders, getOrdersCount };
+export { createOrder, getAllOrders, getOrdersCount, getClientOrders };

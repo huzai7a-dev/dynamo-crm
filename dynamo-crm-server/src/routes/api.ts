@@ -7,6 +7,6 @@ const apiRoutes = express.Router();
 
 apiRoutes.use("/auth", authRoutes);
 apiRoutes.use("/user", userRoutes);
-apiRoutes.use("/order", orderRoutes);
+apiRoutes.use("/orders", orderRoutes);
 
 export default apiRoutes;
